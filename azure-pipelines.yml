@@ -7,7 +7,7 @@ resources:
     # image: matoba/node10-puppeteer:azure-pipe
 
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: 'vs2017-win2016'
 
 container: my_container
 
