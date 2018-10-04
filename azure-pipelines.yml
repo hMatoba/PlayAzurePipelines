@@ -2,14 +2,14 @@
 
 resources:
   containers:
-  - container: alp
-    image: nginx:alpine
+  - container: deb
+    image: nginx:stable
     # image: matoba/node10-puppeteer:azure-pipe
 
 pool:
   vmImage: 'ubuntu-16.04'
 
-container: alp
+container: deb
 
 steps:
 - script: |
