@@ -3,7 +3,7 @@
 resources:
   containers:
   - container: deb
-    image: nginx:stable
+    image: nginx:alpine
     # image: matoba/node10-puppeteer:azure-pipe
 
 pool:
