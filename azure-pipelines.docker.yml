@@ -1,0 +1,10 @@
+pool:
+  vmImage: 'ubuntu-16.04'
+
+container: deb
+
+steps:
+- script: |
+    docker -v
+    docker-compose-v
+  displayName: 'check docker'
