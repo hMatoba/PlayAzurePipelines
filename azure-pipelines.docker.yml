@@ -4,6 +4,7 @@ pool:
 steps:
 - script: |
     docker -v
+    docker version -f '{{.Server.Experimental}}'
     docker-compose -v
     docker login -u $(dockerId) -p $(dockerPw)
   displayName: 'prepare'
