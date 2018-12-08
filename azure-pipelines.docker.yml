@@ -5,4 +5,5 @@ steps:
 - script: |
     docker -v
     docker-compose -v
+    cat /etc/docker/daemon.json
   displayName: 'check docker'
