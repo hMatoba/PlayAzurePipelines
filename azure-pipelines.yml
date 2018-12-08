@@ -12,6 +12,5 @@ pool:
 container: deb
 
 steps:
-- script: |
-    ls
+- script: ls
   displayName: 'foo'
