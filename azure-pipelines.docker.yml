@@ -13,10 +13,11 @@ steps:
     docker tag nginx:alpine matoba/nginx
   displayName: 'build'
 - script: |
-    docker run -d -p 80:80 matoba/nginx
+    docker-compose build
+    docker-compose up -d
   displayName: 'run'
 - script: |
-    curl http://127.0.0.1/
+    curl https://127.0.0.1/
   displayName: 'test'
 - script: |
     docker push matoba/nginx

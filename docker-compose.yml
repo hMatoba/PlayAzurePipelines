@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  webapp:
+    image: matoba/nginx
+  proxy:
+    image: matoba/ssldevenv:cc
+    ports:
+      - "443:443"
+    environment:
+      - LINK_TO=webapp
