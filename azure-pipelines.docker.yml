@@ -5,10 +5,18 @@ steps:
 - script: |
     docker -v
     docker-compose -v
-  displayName: 'check docker'
+    docker login -u $(dockerId) -p $(dockerPw)
+  displayName: 'prepare'
 - script: |
-    docker run -d -p 80:80 nginx:alpine
+    docker pull nginx:alpine
+    docker tag nginx:alpine matoba/nginx
+  displayName: 'build'
+- script: |
+    docker run -d -p 80:80 matoba/nginx
   displayName: 'run container'
 - script: |
     curl http://127.0.0.1/
   displayName: 'test'
+- script: |
+    docker push matoba/nginx
+  displayName: 'push'
