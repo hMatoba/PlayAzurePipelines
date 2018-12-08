@@ -5,5 +5,10 @@ steps:
 - script: |
     docker -v
     docker-compose -v
-    cat /etc/docker/daemon.json
   displayName: 'check docker'
+- script: |
+    docker run -d -p 80:80 nginx:alpine
+  displayName: 'run container'
+- script: |
+    curl http://127.0.0.1/
+  displayName: 'test'
