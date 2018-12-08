@@ -1,11 +1,8 @@
-trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-16.04'
 
 jobs:
 - job: prepare
+  pool:
+    vmImage: 'ubuntu-16.04'
   steps:
   - script: |
       docker -v
@@ -13,8 +10,9 @@ jobs:
       docker login -u $(dockerId) -p $(dockerPw)
     displayName: 'prepare'
 
-- job: "build and run"
-  steps:
+- job: run
+  pool:
+    vmImage: 'ubuntu-16.04'
   - script: |
       docker pull nginx:alpine
       docker tag nginx:alpine matoba/nginx
@@ -22,16 +20,9 @@ jobs:
   - script: |
       docker run -d -p 80:80 matoba/nginx
     displayName: 'run'
-
-- job: "test"
-  steps:
   - script: |
-      curl http://127.0.0.1
+      curl http://127.0.0.1/
     displayName: 'test'
-
-- job: "push"
-  steps:
   - script: |
       docker push matoba/nginx
     displayName: 'push'
-    
