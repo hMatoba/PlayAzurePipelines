@@ -17,7 +17,7 @@ steps:
     docker-compose up -d
   displayName: 'run'
 - script: |
-    curl https://127.0.0.1/
+    curl --insecure https://127.0.0.1/
   displayName: 'test'
 - script: |
     docker push matoba/nginx
