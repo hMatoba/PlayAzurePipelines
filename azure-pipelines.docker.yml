@@ -15,7 +15,7 @@ steps:
     docker run -d -p 80:80 matoba/nginx
   displayName: 'run'
 - script: |
-    curl http://127.0.0.1/
+    curl http://127.0.0.1
   displayName: 'test'
 - script: |
     docker push matoba/nginx
