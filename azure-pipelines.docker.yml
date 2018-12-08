@@ -13,6 +13,7 @@ jobs:
 - job: run
   pool:
     vmImage: 'ubuntu-16.04'
+  steps:
   - script: |
       docker pull nginx:alpine
       docker tag nginx:alpine matoba/nginx
